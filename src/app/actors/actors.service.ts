@@ -40,10 +40,14 @@ export class ActorsService {
   create(actor: actorCreationDTO) {
     var apiURL = environment.apiURL + '/actors/saveActor';
     const formData = this.buildFormData(actor);
+    console.log(actor);
+
     return this._http.post(apiURL, formData);
   }
 
   edit(id: number, actor: actorCreationDTO) {
+    console.log("editar actor", actor);
+
     var apiURL = environment.apiURL + '/actors/updateActor';
     const formData = this.buildFormData(actor);
     return this._http.put(`${apiURL}/${id}`, formData);
@@ -58,6 +62,8 @@ export class ActorsService {
     const formData = new FormData();
 
     formData.append('name', actor.name);
+
+    formData.append('surname', actor.surname);
 
     if (actor.biography) {
       formData.append('biography', actor.biography);

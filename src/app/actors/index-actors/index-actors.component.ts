@@ -14,7 +14,7 @@ export class IndexActorsComponent implements OnInit {
   constructor(private _actorsService: ActorsService) { }
 
   actors: actorDTO[];
-  columnsToDisplay = ['name', 'actions'];
+  columnsToDisplay = ['picture', 'name', 'surname', 'actions'];
   totalAmountOfRecords;
   currentPage = 1;
   pageSize = 5;

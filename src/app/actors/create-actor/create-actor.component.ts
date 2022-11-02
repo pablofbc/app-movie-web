@@ -16,6 +16,7 @@ export class CreateActorComponent implements OnInit {
   }
 
   saveChanges(actorCreationDTO: actorCreationDTO) {
+    console.log("create actor", actorCreationDTO);
     this._actorsService.create(actorCreationDTO).subscribe(() => {
       this._router.navigate(['/actors']);
     });

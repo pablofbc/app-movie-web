@@ -15,6 +15,7 @@ export class EditActorComponent implements OnInit {
     private _router: Router) { }
 
   model: actorDTO;
+
   ngOnInit(): void {
     this._activatedRoute.params.subscribe(params => {
       this._actorsService.getById(params.id).subscribe(actor => this.model = actor);
@@ -22,7 +23,7 @@ export class EditActorComponent implements OnInit {
   }
 
   saveChanges(actorCreationDTO: actorCreationDTO) {
-    console.log(actorCreationDTO);
+    console.log("Editando", actorCreationDTO);
     this._actorsService.edit(this.model.id, actorCreationDTO).subscribe(() => {
       this._router.navigate(['/actors']);
     });

@@ -24,10 +24,14 @@ export class FormActorComponent implements OnInit {
       name: ['', {
         validators: [Validators.required]
       }],
+      surname: ['', {
+        validators: [Validators.required]
+      }],
       dateOfBirth: '',
       picture: '',
       biography: ''
     });
+
 
     if (this.model !== undefined) {
       this.form.patchValue(this.model);
@@ -44,6 +48,7 @@ export class FormActorComponent implements OnInit {
 
   saveChanges() {
     this.onSaveChanges.emit(this.form.value);
+    console.log("Form actor", this.form.value);
   }
 
 }

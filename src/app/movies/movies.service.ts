@@ -14,7 +14,8 @@ export class MoviesService {
   private apiURL = environment.apiURL + '/movies';
 
   public getHomePageMovies(): Observable<homeDTO> {
-    return this._http.get<homeDTO>(this.apiURL);
+    var apiURL = environment.apiURL + '/movies/selectMovies';
+    return this._http.get<homeDTO>(apiURL);
   }
 
   public putGet(id: number): Observable<MoviePutGetDTO> {
@@ -22,12 +23,14 @@ export class MoviesService {
   }
 
   public edit(id: number, movieCreationDTO: movieCreationDTO) {
+    var apiURL = environment.apiURL + '/movies/updateMovie';
     const formData = this.BuildFormData(movieCreationDTO);
-    return this._http.put(`${this.apiURL}/${id}`, formData);
+    return this._http.put(`${apiURL}/${id}`, formData);
   }
 
   public getById(id: number): Observable<movieDTO> {
-    return this._http.get<movieDTO>(`${this.apiURL}/${id}`);
+    var apiURL = environment.apiURL + '/movies/selectMovie';
+    return this._http.get<movieDTO>(`${apiURL}/${id}`);
   }
 
   public filter(values: any): Observable<any> {
@@ -40,12 +43,14 @@ export class MoviesService {
   }
 
   public create(movieCreationDTO: movieCreationDTO): Observable<number> {
+    var apiURL = environment.apiURL + '/movies/saveMovie';
     const formData = this.BuildFormData(movieCreationDTO);
-    return this._http.post<number>(this.apiURL, formData);
+    return this._http.post<number>(apiURL, formData);
   }
 
   public delete(id: number) {
-    return this._http.delete(`${this.apiURL}/${id}`);
+    var apiURL = environment.apiURL + '/movies/deleteMovie';
+    return this._http.delete(`${apiURL}/${id}`);
   }
 
   private BuildFormData(movie: movieCreationDTO): FormData {

@@ -5,6 +5,11 @@
       <mat-error>The name field is required</mat-error>
   </mat-form-field>
   <mat-form-field appearance="outline">
+    <mat-label>Surname</mat-label>
+    <input formControlName="surname" matInput />
+    <mat-error>The surname field is required</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
       <mat-label>Date of Birth</mat-label>
       <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
